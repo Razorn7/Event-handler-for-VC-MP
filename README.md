@@ -5,28 +5,30 @@ The event handler allows you to attach functions to events in any part of the co
 ### Setup
 Important things before doing your first setup with the event handler:
 
-- If you want to use this on your server, you will have to adapt parts of the code that use native VC:MP events (like onPlayerJoin, onScriptLoad, onCheckpointEntered and etc), below is a simple example on how to do this:
-**Old event**:
-```js
-function onScriptLoad() {
-	SetServerName("[0.4] Server");
-	SetPassword("123");
-}
-```
+1. If you want to use this on your server, you will have to adapt parts of the code that use native VC:MP events (like onPlayerJoin, onScriptLoad, onCheckpointEntered and etc), below is a simple example on how to do this:
+	- **Old event**:
+	```js
+	function onScriptLoad() {
+		SetServerName("[0.4] Server");
+		SetPassword("123");
+	}
+	```
+	**New event**:
+	```js
+	addEventHandler("onScriptLoad", function() {
+		SetServerName("[0.4] Server");
+		SetPassword("123");
+	});
+	```
+	**or**
+	```js
+	function onLoad() {
+		SetServerName("[0.4] Server");
+		SetPassword("123");
+	}
+	addEventHandler("onScriptLoad", onLoad);
+	```
+2. For compatibility reasons, you cannot create functions in code with the names of native VC:MP functions, ie something like `function onScriptLoad() {}` in your code can cause problems, try your best to use an alias like `onLoad` or `onServerInitialise`.
+3. The event that will be called by the `triggerServerEvent` function on the server-side must have the first argument related to the player.
 
-**New event**:
-```js
-addEventHandler("onScriptLoad", function() {
-	SetServerName("[0.4] Server");
-	SetPassword("123");
-});
-```
-**or**
-```js
-function onLoad() {
-	SetServerName("[0.4] Server");
-	SetPassword("123");
-}
-addEventHandler("onScriptLoad", onLoad);
-```
-- For compatibility reasons, you cannot create functions in code with the names of native VC:MP functions, ie something like `function onScriptLoad() {}` in your code can cause problems, try your best to use an alias like `onLoad` or `onServerInitialise`.
+### Setup
