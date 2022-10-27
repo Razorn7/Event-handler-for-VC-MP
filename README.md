@@ -1,6 +1,6 @@
 ## Event handler similar to Multi Theft Auto: San Andreas for VC:MP.
 
-The event handler allows you to attach functions to events in any part of the code, without having to put your functions in the same part of the code. This feature also provides the functions [triggerServerEvent] and [triggerClientEvent] that have the functionality to call events registered in both parts in a practical way.
+The event handler allows you to attach functions to events in any part of the code, without having to put your functions in the same part of the code. This feature also provides the functions [triggerServerEvent](https://github.com/Razorn7/Event-handler-for-VC-MP/wiki/triggerServerEvent) and [triggerClientEvent](https://github.com/Razorn7/Event-handler-for-VC-MP/wiki/triggerClientEvent) that have the functionality to call events registered in both parts in a practical way.
 
 ### Important notes before usage
 Important things before doing your first setup with the event handler:
